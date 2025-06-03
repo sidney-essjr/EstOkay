@@ -2,11 +2,10 @@ FROM node:22-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+COPY estokay.api/package*.json ./
+RUN npm ci
 
-COPY . .
-
+COPY estokay.api/ ./
 RUN npm run build
 
 EXPOSE 3000
