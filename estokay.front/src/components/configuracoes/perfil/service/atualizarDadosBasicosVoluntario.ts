@@ -6,7 +6,7 @@ export interface IAtualizarDadosBasicosVoluntario {
 
 export class AtualizarDadosBasicosVoluntario implements IAtualizarDadosBasicosVoluntario {
   async exec(data: Perfil, id: number) {
-    const response = await fetch(`${import.meta.env.URL_BASE}/voluntarios/${id}`, {
+    const response = await fetch(`${import.meta.env.VITE_URL_BASE}/voluntarios/${id}`, {
       method: "PATCH",
       credentials: "include",
       headers: {

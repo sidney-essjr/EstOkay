@@ -4,7 +4,7 @@ import { FormDoadorFields } from "../common/validations/formDoadorValidationSche
 
 export async function postCriarDoador(data: FormDoadorFields) {
   try {
-    const response = await fetch(`${import.meta.env.URL_BASE}/doadores`, {
+    const response = await fetch(`${import.meta.env.VITE_URL_BASE}/doadores`, {
       method: "POST",
       credentials: "include",
       headers: {
