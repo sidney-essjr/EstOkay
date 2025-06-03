@@ -18,9 +18,8 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'https://estokay.onrender.com',
       'https://localhost:5173',
-      'https://estokay-front.vercel.app',
+      'https://estokay-frontend.onrender.com/',
     ],
     credentials: true,
   });
