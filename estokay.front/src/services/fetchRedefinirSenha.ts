@@ -3,7 +3,7 @@ import { responseHandler } from "../common/utils/responseHandler";
 
 export async function postRedefinirSenha(novaSenha: string, token: string) {
   try {
-    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/auth/redefinir-senha`, {
+    const response = await fetch(`${import.meta.env.URL_BASE}/auth/redefinir-senha`, {
       method: "POST",
       credentials: "include",
       headers: {

@@ -4,7 +4,7 @@ import { Distribuicao } from "../types/distribuicao";
 
 export async function postCriarDistribuicao(data: Distribuicao) {
   try {
-    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/distribuicoes`, {
+    const response = await fetch(`${import.meta.env.URL_BASE}/distribuicoes`, {
       method: "POST",
       credentials: "include",
       headers: {

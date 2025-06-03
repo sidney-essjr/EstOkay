@@ -4,7 +4,7 @@ import { FormEsqueceuSenhaField } from "../common/validations/formEsqueceuSenhaV
 
 export async function postEsqueceuSenha(data: FormEsqueceuSenhaField) {
   try {
-    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/auth/esqueceu-senha`, {
+    const response = await fetch(`${import.meta.env.URL_BASE}/auth/esqueceu-senha`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

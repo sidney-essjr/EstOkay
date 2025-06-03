@@ -19,7 +19,7 @@ export interface IGetDistribuicao {
 
 export class GetDistribuicao implements IGetDistribuicao {
   async exec(params: Relatorio) {
-    const url = new URL(`${import.meta.env.VITE_BASE_URL}/distribuicoes/buscar`);
+    const url = new URL(`${import.meta.env.URL_BASE}/distribuicoes/buscar`);
 
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {

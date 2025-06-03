@@ -21,7 +21,7 @@ export interface IGetDoacao {
 
 export class GetDoacoes implements IGetDoacao {
   async exec(params: Relatorio) {
-    const url = new URL(`${import.meta.env.VITE_BASE_URL}/doacoes/buscar`);
+    const url = new URL(`${import.meta.env.URL_BASE}/doacoes/buscar`);
 
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
