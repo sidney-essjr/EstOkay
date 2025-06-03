@@ -35,8 +35,10 @@ import { Estoque } from './modules/estoque/entity/estoque.entity';
       type: 'postgres',
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
-      ssl: {
-        rejectUnauthorized: false,
+      extra: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
       },
       entities: [
         Voluntario,
