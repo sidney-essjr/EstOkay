@@ -9,7 +9,7 @@ export default function ConfiguracoesPage() {
 
   if (!voluntario || !voluntario.dataVoluntario) return null;
 
-  const volutarioFuncao = Number(voluntario.dataVoluntario.funcao);
+  // const volutarioFuncao = Number(voluntario.dataVoluntario.funcao);
 
   return (
     <section className="flex flex-col gap-2 sm:gap-5 sm:py-12 sm:px-4 items-center justify-center m-auto">
