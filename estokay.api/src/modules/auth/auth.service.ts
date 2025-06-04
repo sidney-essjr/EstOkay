@@ -123,6 +123,7 @@ export class AuthService {
   }
 
   async sessionLogin(req: any) {
+
     const id = Number(req.voluntario.id);
 
     try {
