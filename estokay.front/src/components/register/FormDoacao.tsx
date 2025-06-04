@@ -87,6 +87,7 @@ export default function FormDoacao({
         <Input
           id="data-entrada"
           label="Data entrada*"
+          lang="pt-BR"
           type="date"
           error={errors.dataEntrada?.message}
           {...register("dataEntrada")}
@@ -140,6 +141,7 @@ export default function FormDoacao({
           <Input
             id={`itens.${index}.validade`}
             label="Validade"
+            lang="pt-BR"
             type="date"
             error={errors?.itens?.[index]?.validade?.message}
             {...register(`itens.${index}.validade`)}

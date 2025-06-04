@@ -36,8 +36,8 @@ export default function FormRelatorioSaidas({
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-2">
       <div className="grid md:grid-cols-3 gap-2 shadow-md  sm:p-4 p-2 rounded-sm">
-        <Input id="dataInicio" label="Data Inicio" type="date" {...register("dataInicio")} />
-        <Input id="dataFim" label="Data Fim" type="date" {...register("dataFim")} />
+        <Input id="dataInicio" label="Data Inicio" lang="pt-BR" type="date" {...register("dataInicio")} />
+        <Input id="dataFim" label="Data Fim" lang="pt-BR" type="date" {...register("dataFim")} />
         <SelectableInput
           id="voluntario"
           label="Voluntário"
