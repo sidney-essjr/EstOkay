@@ -141,9 +141,11 @@ export class AuthService {
   }
 
   criarCookie(res: Response, token: string) {
+    const isProduction = process.env.NODE_ENV === 'production';
+
     res.cookie('accessToken', token, {
-      httpOnly: false,
-      secure: true,
+      httpOnly: isProduction,
+      secure: isProduction,
       maxAge: 1000 * 60 * 60 * 24,
       sameSite: 'lax',
     });
