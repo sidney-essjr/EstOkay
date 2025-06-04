@@ -4,7 +4,7 @@ import { FormVoluntarioFields } from "../common/validations/formVoluntarioSchema
 
 export async function postCriarVoluntario(data: FormVoluntarioFields) {
   try {
-    const response = await fetch(`${import.meta.env.VITE_URL_BASE}/voluntarios`, {
+    const response = await fetch(`/api/voluntarios`, {
       method: "POST",
       credentials: "include",
       headers: {

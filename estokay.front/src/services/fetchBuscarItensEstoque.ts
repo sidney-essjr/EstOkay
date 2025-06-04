@@ -3,7 +3,7 @@ import { responseHandler } from "../common/utils/responseHandler";
 import { ItemDoacao } from "../types/ItemDoacao";
 
 export async function getItensEstoque(params = {}) {
-  const url = new URL(`${import.meta.env.VITE_URL_BASE}/estoque/buscar`);
+  const url = new URL(`/api/estoque/buscar`);
   url.search = new URLSearchParams(params).toString();
 
   try {

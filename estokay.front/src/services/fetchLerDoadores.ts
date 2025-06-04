@@ -4,7 +4,7 @@ import { Doador } from "../types/doador";
 
 export async function getLerDoadores() {
   try {
-    const response = await fetch(`${import.meta.env.VITE_URL_BASE}/doadores`, {
+    const response = await fetch(`/api/doadores`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

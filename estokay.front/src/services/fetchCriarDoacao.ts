@@ -4,7 +4,7 @@ import { FormDoacaoFields } from "../common/validations/formDoacaoValidationSche
 
 export async function postCriarDoacao(data: FormDoacaoFields) {
   try {
-    const response = await fetch(`${import.meta.env.VITE_URL_BASE}/doacoes`, {
+    const response = await fetch(`/api/doacoes`, {
       method: "POST",
       credentials: "include",
       headers: {

@@ -4,7 +4,7 @@ import { Voluntario } from "../types/voluntario";
 
 export async function getLerVoluntario(email: string) {
   try {
-    const response = await fetch(`${import.meta.env.VITE_URL_BASE}/voluntarios/buscar/${email}`, {
+    const response = await fetch(`/api/voluntarios/buscar/${email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

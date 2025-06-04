@@ -4,7 +4,7 @@ import { Voluntario } from "../types/voluntario";
 
 export async function postSessionLogin() {
   try {
-    const response = await fetch(`${import.meta.env.VITE_URL_BASE}/auth/session-login`, {
+    const response = await fetch(`/api/auth/session-login`, {
       method: "POST",
       credentials: "include",
       headers: {
