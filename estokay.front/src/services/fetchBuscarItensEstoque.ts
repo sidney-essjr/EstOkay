@@ -3,8 +3,7 @@ import { responseHandler } from "../common/utils/responseHandler";
 import { ItemDoacao } from "../types/ItemDoacao";
 
 export async function getItensEstoque(params = {}) {
-  const url = new URL(`/api/estoque/buscar`);
-  url.search = new URLSearchParams(params).toString();
+  const url = `/api/estoque/buscar ${new URLSearchParams(params)}`
 
   try {
     const response = await fetch(url, {
