@@ -19,13 +19,15 @@ export interface IGetDistribuicao {
 
 export class GetDistribuicao implements IGetDistribuicao {
   async exec(params: Relatorio) {
-    const url = new URL(`/api/distribuicoes/buscar`);
+    const searchParams = new URLSearchParams()
 
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
-        url.searchParams.append(key, String(value));
+        searchParams.append(key, String(value));
       }
     });
+
+    const url = `/api/distribuicoes/buscar?${searchParams.toString()}`;
 
     const response = await fetch(url, {
       method: "GET",

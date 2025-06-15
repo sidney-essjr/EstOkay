@@ -7,9 +7,7 @@ export type RelatorioDoacoes = {
     cidade: string;
     estado: string;
   };
-  itens: [
-    { quantidade: number; categoria: string; descricao: string; medida: string; tamanho: string }
-  ];
+  itens: [{ quantidade: number; categoria: string; descricao: string; medida: string; tamanho: string }];
   voluntario: {
     nome: string;
   };
@@ -21,13 +19,15 @@ export interface IGetDoacao {
 
 export class GetDoacoes implements IGetDoacao {
   async exec(params: Relatorio) {
-    const url = new URL(`/api/doacoes/buscar`);
+    const searchParams = new URLSearchParams();
 
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
-        url.searchParams.append(key, String(value));
+        searchParams.append(key, String(value));
       }
     });
+
+    const url = `/api/doacoes/buscar?${searchParams.toString()}`;
 
     const response = await fetch(url, {
       method: "GET",
