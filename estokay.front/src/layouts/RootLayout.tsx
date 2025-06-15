@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import LogoutSVG from "../assets/svg/LogoutSVG";
 import PadlockSVG from "../assets/svg/PadlockSVG";
 import { sessionLogin } from "../common/utils/sessionLogin";
