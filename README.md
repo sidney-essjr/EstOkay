@@ -67,12 +67,12 @@ npm start
 ## Scripts úteis
 
 ### Backend
-npm run start:dev – inicia em dev com ts-node-dev
-npm run build – gera dist/
-npm run test – executa testes (se houver)
+- npm run start:dev – inicia em dev com ts-node-dev
+- npm run build – gera dist/
+- npm run test – executa testes (se houver)
 
 ### Frontend
-npm start – inicia dev server
-npm run build – gera build otimizado
-npm run lint – executa ESLint
-npm run format – executa Prettier
+- npm start – inicia dev server
+- npm run build – gera build otimizado
+- npm run lint – executa ESLint
+- npm run format – executa Prettier
