@@ -27,22 +27,22 @@ EstOkay/
 ## Visão geral
 
 ### Backend:
-NestJS + TypeORM + JWT + bcrypt + Mailer
-Funcionalidades: login/logout via cookies, sessão, reset de senha, CRUD de relatórios
+- NestJS + TypeORM + JWT + bcrypt + Mailer
+- Funcionalidades: login/logout via cookies, sessão, reset de senha, CRUD de relatórios
 
 ### Frontend:
-React + TypeScript + React Router
-Hooks para sessão (sessionLogin, sessionLogout)
-Componente de layout com sidebar, header
-Comunicação com API via fetch, incluindo credenciais (cookies)
+- React + TypeScript + React Router
+- Hooks para sessão (sessionLogin, sessionLogout)
+- Componente de layout com sidebar, header
+- Comunicação com API via fetch, incluindo credenciais (cookies)
 
 ## Tecnologias
 
 Parte	Tecnologias principais
-Backend	NestJS · TypeScript · TypeORM · PostgreSQL/MySQL · JWT · bcrypt · nodemailer
-Frontend	React · TypeScript · React Router v6 · CSS (Tailwind ou similar)
+- Backend	NestJS · TypeScript · TypeORM · PostgreSQL/MySQL · JWT · bcrypt · nodemailer
+- Frontend	React · TypeScript · React Router v6 · CSS (Tailwind ou similar)
 
-##Como executar o projeto
+## Como executar o projeto
 
 ### Backend (API)
 bash
