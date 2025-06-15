@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 import LogoutSVG from "../assets/svg/LogoutSVG";
 import PadlockSVG from "../assets/svg/PadlockSVG";
 import { sessionLogin } from "../common/utils/sessionLogin";
+import { sessionLogout } from "../common/utils/sessionLogout";
 import Sidebar from "../components/sidebar/SidebarContainer";
 import { useDataVoluntario } from "../hooks/useDataVoluntario";
 
@@ -11,6 +12,7 @@ export default function RootLayout() {
   const [atHome, setAtHome] = useState(true);
   const dataVoluntario = useDataVoluntario();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setAtHome(location.pathname === "/");
@@ -29,6 +31,14 @@ export default function RootLayout() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
+  async function handleSessionLogout() {
+    const response = await sessionLogout();
+    if (response) {
+      setAcesso({ logado: false, nome: "acessar" });
+      navigate("/");
+    }
+  }
+
   return (
     <>
       <header className="w-full min-h-32 flex flex-col m-auto items-center sm:flex-row">
@@ -45,15 +55,13 @@ export default function RootLayout() {
           <PadlockSVG />
           <Link to={acesso.logado ? "/cadastro" : "/access/login"}>{acesso.nome}</Link>
           {!atHome && (
-            <Link to={"/"}>
+            <button onClick={handleSessionLogout}>
               <LogoutSVG />
-            </Link>
+            </button>
           )}
         </div>
       </header>
-      <section
-        className={`${!atHome ? "sm:h-[calc(100vh-128px)] relative bg-logo-gray-color" : "block"}`}
-      >
+      <section className={`${!atHome ? "sm:h-[calc(100vh-128px)] relative bg-logo-gray-color" : "block"}`}>
         {!atHome && <Sidebar />}
         <Outlet />
       </section>
