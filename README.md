@@ -50,7 +50,7 @@ Copy
 Edit
 cd backend
 cp .env.example .env
-# Ajuste variáveis: DB_URL, JWT_SECRET, MAIL_HOST, etc.
+#### Ajuste variáveis: DB_URL, JWT_SECRET, MAIL_HOST, etc.
 npm install          # ou yarn install
 npm run start:dev    # modo desenvolvimento (hot-reload)
 
@@ -60,7 +60,7 @@ Copy
 Edit
 cd frontend
 cp .env.example .env
-# Ajuste: REACT_APP_API_URL=http://localhost:3000/api
+#### Ajuste: REACT_APP_API_URL=http://localhost:3000/api
 npm install
 npm start
 
