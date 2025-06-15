@@ -45,18 +45,18 @@ Parte	Tecnologias principais
 ## Como executar o projeto
 
 ### Backend (API)
-cd backend
-cp .env.example .env
+- cd backend
+- cp .env.example .env
 ### Ajuste variáveis: DB_URL, JWT_SECRET, MAIL_HOST, etc.
-npm install          # ou yarn install
-npm run start:dev    # modo desenvolvimento (hot-reload)
+- npm install          # ou yarn install
+- npm run start:dev    # modo desenvolvimento (hot-reload)
 
 ### Frontend (cliente)
-cd frontend
-cp .env.example .env
+- cd frontend
+- cp .env.example .env
 ### Ajuste: REACT_APP_API_URL=http://localhost:3000/api
-npm install
-npm start
+- npm install
+- npm start
 
 ## Scripts úteis
 
