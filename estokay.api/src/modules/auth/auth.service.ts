@@ -123,7 +123,6 @@ export class AuthService {
   }
 
   async sessionLogin(req: any) {
-
     const id = Number(req.voluntario.id);
 
     try {
@@ -150,5 +149,17 @@ export class AuthService {
       maxAge: 1000 * 60 * 60 * 24,
       sameSite: 'lax',
     });
+  }
+
+  logout(res: Response) {
+    res.clearCookie('accessToken', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+    });
+
+    return res
+      .status(HttpStatus.OK)
+      .json({ message: 'Logout realizado com sucesso.' });
   }
 }

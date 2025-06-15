@@ -4,7 +4,13 @@ import { AuthGuard } from 'src/common/guards/auth.guard';
 import { AuthService } from './auth.service';
 import { EsqueceuSenhaDTO } from './dto/esqueceu-senha.dto';
 import { LoginDTO } from './dto/login.dto';
-import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import {
+  ApiBody,
+  ApiOperation,
+  ApiParam,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -27,7 +33,12 @@ export class AuthController {
 
   @ApiOperation({ summary: 'Redefinir senha' })
   @ApiResponse({ status: 200, description: 'Senha redefinida com sucesso' })
-  @ApiBody({ schema: { type: 'object', properties: { token: { type: 'string' }, novaSenha: { type: 'string' } } } })
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: { token: { type: 'string' }, novaSenha: { type: 'string' } },
+    },
+  })
   @Post('redefinir-senha')
   redefinirSenha(
     @Body() body: { token: string; novaSenha: string },
@@ -36,11 +47,16 @@ export class AuthController {
     return this.authService.redefinirSenha(body.token, body.novaSenha, res);
   }
 
-  @ApiOperation({ summary: 'Logout' })
-  @ApiResponse({ status: 200, description: 'Logout realizado com sucesso' })
   @UseGuards(AuthGuard)
   @Post('session-login')
   sessionLogin(@Req() req) {
     return this.authService.sessionLogin(req);
+  }
+
+  @ApiOperation({ summary: 'Logout' })
+  @ApiResponse({ status: 200, description: 'Logout realizado com sucesso' })
+  @Post('logout')
+  logout(@Res() res: Response) {
+    return this.authService.logout(res);
   }
 }
