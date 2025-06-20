@@ -4,11 +4,13 @@ import useRelatorioGraficoModel from "../components/relatorio/relatorio-grafico/
 import RelatorioGraficoViewForm from "../components/relatorio/relatorio-grafico/relatorio-grafico.view";
 import { GetDistribuicao } from "../services/fetchBuscarDistribuicao";
 import { GetDoacoes } from "../services/fetchBuscarDoacao";
+import { GetVoluntarios } from "../services/fetchVoluntarios";
 
 export default function RelatoriosGraficosPage() {
   const getDistribuicao = new GetDistribuicao();
   const getDoacoes = new GetDoacoes();
-  const methods = useRelatorioGraficoModel({ getDistribuicao, getDoacoes });
+  const getVoluntarios = new GetVoluntarios();
+  const methods = useRelatorioGraficoModel({ getDistribuicao, getDoacoes, getVoluntarios });
   return (
     <section className="m-auto max-w-[1000px]">
       <Title>
