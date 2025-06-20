@@ -21,6 +21,7 @@ export default function PerfilView({
       <Input
         id="telefone"
         label="Telefone"
+        placeholder="(DDD) 91234-5678"
         {...register("telefone")}
         error={errors.telefone?.message}
       />

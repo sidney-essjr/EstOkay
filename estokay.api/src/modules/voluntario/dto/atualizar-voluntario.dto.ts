@@ -24,7 +24,7 @@ export class AtualizarVoluntarioDTO {
   email: string;
 
   @IsOptional()
-  @IsPhoneNumber('BR')
+  @IsPhoneNumber('BR', {message: "Dado inválido!"})
   @ApiProperty({ example: '51999999999', description: 'Telefone do voluntário' })
   telefone: string;
 

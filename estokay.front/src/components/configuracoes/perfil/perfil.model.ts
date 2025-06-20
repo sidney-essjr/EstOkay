@@ -33,7 +33,7 @@ const usePerfilModel = ({ service }: PerfilModelProps) => {
     () => service.exec(getValues(), voluntario?.dataVoluntario?.id || 0),
     {
       onSuccess: () => setInfo("Dados atualizados!"),
-      onError: () => setInfo("Problemas ao tentar atualizar os dados, tente novamente mais tarde!"),
+      onError: () => setInfo("Falha na atualização, verifique seus dados e tente novamente!"),
     }
   );
 
