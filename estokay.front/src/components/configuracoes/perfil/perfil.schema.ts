@@ -1,7 +1,7 @@
 import { z } from "zod";
 import isValidCPF from "../../../common/utils/isValidCPF";
 
-const telefoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/;
+const telefoneRegex = /^\(?\d{2}\)?[\s-]?(9\d{4}|\d{4})-?\d{4}$/;
 
 export const perfilValidationSchema = z.object({
   nome: z.string().trim().min(1, "Campo obrigatório!"),
