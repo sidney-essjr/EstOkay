@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { useQueries } from "react-query";
+import { useQueries, useQuery } from "react-query";
 import Loading from "../../assets/svg/Loading";
 import { GetDistribuicao, RelatorioDistribuicao } from "../../services/fetchBuscarDistribuicao";
 import { GetVoluntarios } from "../../services/fetchVoluntarios";
@@ -9,6 +9,8 @@ import { Voluntario } from "../../types/voluntario";
 import Button from "../common/Button";
 import Input from "../common/Input";
 import SelectableInput from "../common/SelectableInput";
+import { GetVoluntarios } from "../../services/fetchVoluntarios";
+import { Voluntario } from "../../types/voluntario";
 
 export default function FormRelatorioSaidas({
   setData,
