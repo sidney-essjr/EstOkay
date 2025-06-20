@@ -34,7 +34,7 @@ export default function FormRelatorioEntradas({ setData }: { setData: Dispatch<S
       enabled: true,
       select(data: Voluntario[]) {
         return data.map((v) => ({
-          value: v.nome,
+          value: v.id,
           desc: v.nome,
         }));
       },
@@ -59,12 +59,6 @@ export default function FormRelatorioEntradas({ setData }: { setData: Dispatch<S
           )}
         />
 
-        {/* <SelectableInput
-          id="voluntario"
-          label="Voluntário"
-          options={results[1].data ?? []}
-          {...register("voluntario")}
-        /> */}
       </div>
       <div className="md:col-span-2 lg:col-span-4 flex flex-col-reverse md:flex-row">
         <Button className="w-full  ml-auto md:w-[118px]" type="submit" variant="neutral" disabled={isSubmitting}>
