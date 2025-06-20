@@ -23,12 +23,12 @@ export default function GraficoView({
         <div className="max-w-[400px] h-[300px] overflow-auto">
           <VictoryChart theme={VictoryTheme.clean} domainPadding={20} width={320}>
             <VictoryAxis
-              style={{ tickLabels: { fontSize: 12, padding: 5, fontFamily: "Roboto" } }}
+              style={{ tickLabels: { fontSize: 10, padding: 5, fontFamily: "Arial" } }}
             />
             <VictoryAxis
               dependentAxis
               tickFormat={(x) => `${x}`}
-              style={{ tickLabels: { fontSize: 12, padding: 5, fontFamily: "Roboto" } }}
+              style={{ tickLabels: { fontSize: 10, padding: 5, fontFamily: "Arial" } }}
             />
             <VictoryBar
               data={
@@ -43,7 +43,7 @@ export default function GraficoView({
               y="quantidade"
               style={{
                 data: { fill: "#fb3b2e", width: 30 },
-                labels: { fontSize: 10, fill: "#000", fontFamily: "Roboto" },
+                labels: { fontSize: 10, fill: "#000", fontFamily: "Arial" },
               }}
               labels={({ datum }) => `${datum.quantidade}`}
             />
@@ -75,11 +75,12 @@ export default function GraficoView({
                 fillOpacity: 0.8, // Opacidade para dar um efeito moderno
                 stroke: "#fff", // Cor da borda
                 strokeWidth: 2, // Espessura da borda
+                fontFamily: "Arial"
               },
               labels: {
                 fontSize: 16, // Tamanho da fonte das labels
                 fill: '"#a6a6a6',
-                fontFamily: "Roboto", // Cor das labels
+                fontFamily: "Arial", // Cor das labels
               },
             }}
             colorScale={[

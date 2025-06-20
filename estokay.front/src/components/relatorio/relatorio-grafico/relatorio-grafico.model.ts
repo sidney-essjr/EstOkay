@@ -1,37 +1,39 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useQueries } from "react-query";
 import { IGetDistribuicao, RelatorioDistribuicao } from "../../../services/fetchBuscarDistribuicao";
 import { IGetDoacao, RelatorioDoacoes } from "../../../services/fetchBuscarDoacao";
+import { IGetVoluntarios } from "../../../services/fetchVoluntarios";
 import { Relatorio } from "../../../types/relatorio";
 import calcRegistrosPorCategoriaEntrada from "./utils/registros-por-categoria-entrada";
 import calcRegistrosPorCategoriaSaida from "./utils/registros-por-categoria-saida";
 import calcRegistrosPorMes from "./utils/registros-por-mes";
 import calcRegistrosPorUF from "./utils/registros-por-uf";
+import { Voluntario } from "../../../types/voluntario";
 
 type RelatorioGraficoProps = {
   getDistribuicao: IGetDistribuicao;
   getDoacoes: IGetDoacao;
+  getVoluntarios: IGetVoluntarios;
 };
 
-const useRelatorioGraficoModel = ({ getDistribuicao, getDoacoes }: RelatorioGraficoProps) => {
+const useRelatorioGraficoModel = ({ getDistribuicao, getDoacoes, getVoluntarios }: RelatorioGraficoProps) => {
   const {
     handleSubmit,
     getValues,
     register,
+    control,
     formState: { isSubmitting },
   } = useForm<Relatorio>();
   const [registrosPorMesEntrada, setRegistrosPorMesEntrada] = useState<Record<string, number>>();
-  const [registrosPorCategoriaEntrada, setRegistrosPorCategoriaEntrada] =
-    useState<Map<string, number>>();
+  const [registrosPorCategoriaEntrada, setRegistrosPorCategoriaEntrada] = useState<Map<string, number>>();
   const [registrosPorUfEntrada, setRegistrosPorUfEntrada] = useState<Map<string, number>>();
   const [registrosTotaisEntrada, setRegistrosTotaisEntrada] = useState<number>(0);
   const [registrosPorMesSaida, setRegistrosPorMesSaida] = useState<Record<string, number>>();
-  const [registrosPorCategoriaSaida, setRegistrosPorCategoriaSaida] =
-    useState<Map<string, number>>();
+  const [registrosPorCategoriaSaida, setRegistrosPorCategoriaSaida] = useState<Map<string, number>>();
   const [registrosTotaisSaida, setRegistrosTotaisSaida] = useState<number>(0);
 
-  const [doacoes, distribuicoes] = useQueries([
+  const [doacoes, distribuicoes, voluntarios] = useQueries([
     {
       queryKey: ["doador"],
       queryFn: () => getDoacoes.exec(getValues()),
@@ -43,6 +45,17 @@ const useRelatorioGraficoModel = ({ getDistribuicao, getDoacoes }: RelatorioGraf
       queryFn: () => getDistribuicao.exec(getValues()),
       enabled: false,
       onSuccess: handleGraphDataSaida,
+    },
+    {
+      queryKey: ["voluntarios"],
+      queryFn: () => getVoluntarios.exec(),
+      enabled: true,
+      select(data: Voluntario[]) {
+        return data.map((v) => ({
+          value: v.id,
+          desc: v.nome,
+        }));
+      },
     },
   ]);
 
@@ -81,7 +94,10 @@ const useRelatorioGraficoModel = ({ getDistribuicao, getDoacoes }: RelatorioGraf
     isSubmitting,
     onSubmit,
     doacoes,
+    control,
+    Controller,
     distribuicoes,
+    voluntarios,
     registrosPorMesEntrada,
     registrosPorCategoriaEntrada,
     registrosPorUfEntrada,
